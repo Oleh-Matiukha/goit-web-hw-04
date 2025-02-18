@@ -1,0 +1,11 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"  # Порт для веб-додатку
+      - "5000:5000"  # Порт для Socket сервера
+    volumes:
+      - ./storage:/app/storage  # Маппимо storage на ваш локальний диск, щоб зберігати дані поза контейнером
+    environment:
+      - PYTHONUNBUFFERED=1
